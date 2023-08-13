@@ -1,6 +1,6 @@
 # An Introduction to Full Stack dapp Development
 
-This workshop is built around Scaffold-ETH 2.
+This workshop is built around Scaffold-ETH 2 and The Graph.
 
 ## Requirements
 
@@ -47,7 +47,7 @@ yarn chain
 
 > You will keep this window up and available so that you can see any output from hardhat console. 🖥️
 
-> Next we are going to spin up our frontend application. Scaffold-ETH 2 comes with NextJS by default and also can be started with a simple yarn command. You will need to open up a new command line and type the following…
+Next we are going to spin up our frontend application. Scaffold-ETH 2 comes with NextJS by default and also can be started with a simple yarn command. You will need to open up a new command line and type the following…
 
 ```
 yarn start
@@ -55,7 +55,7 @@ yarn start
 
 > You will also want to keep this window up at all times so that you can debug any code changes you make to NextJS, debug performance or just check that the server is running properly.
 
-> Next, you will want to open up a third window where you can deploy your smart contract, along with some other useful commands found in Scaffold-ETH. To do a deploy you can simply run the following…
+Next, you will want to open up a third window where you can deploy your smart contract, along with some other useful commands found in Scaffold-ETH. To do a deploy you can simply run the following…
 
 ```
 yarn deploy
@@ -63,7 +63,7 @@ yarn deploy
 
 > You should get a tx along with an address and amount of gas spent on the deploy. ⛽
 
-> If you navigate to http://localhost:3000 you should see the NextJS application. Explore the menus and features of Scaffold-ETH 2! Someone call in an emergency, cause hot damn that is fire! 🔥
+If you navigate to http://localhost:3000 you should see the NextJS application. Explore the menus and features of Scaffold-ETH 2! Someone call in an emergency, cause hot damn that is fire! 🔥
 
 ### Setup The Graph Integration
 
