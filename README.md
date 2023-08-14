@@ -650,6 +650,95 @@ Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 &nbsp;
 
+## 🌎 Ship to a testnet
+
+Next we want to take our smart contract and deploy it to a testnet!
+
+&nbsp;
+
+✅ Step 1: Create a deployer account ✅
+
+```
+yarn run generate
+```
+
+You should see the following saved to your hardhats environment variable file
+```
+👛 Generating new Wallet
+📄 Private Key saved to packages/hardhat/.env file
+```
+
+&nbsp;
+
+✅ Step 2: Fund the account ✅
+
+```
+yarn account
+```
+
+This should display your public address along with a fancy QR code. And balances?!? Woooowwwww that is slick! <3
+
+```
+
+ ▄▄▄▄▄▄▄ ▄  ▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ 
+ █ ▄▄▄ █ █▀▀▄ █▀█▄ ▄▄█ █ ▄▄▄ █ 
+ █ ███ █ ▄▄██▀▄█ ▀ ███ █ ███ █ 
+ █▄▄▄▄▄█ ▄▀▄▀▄▀▄▀▄ █ ▄ █▄▄▄▄▄█ 
+ ▄  ▄▄▄▄▄▄▀█▄▀▄█▄▄ ▄█▀▄  ▄ ▄▄▄ 
+ ▄▀▀█ █▄██▀▀▀▀▄█▀▀▄█▄██▀▄▄█▀█  
+   ▀▄▄ ▄█▄▄▄▀ █▀▄▀▀▄▄█ ██▀█ ▄▀ 
+ ▄█▀▀██▄ ▀▄   █ ▀  ▀█ ▀▄▀█▄███ 
+ ▄█▀██ ▄▄▄ ▀ ▄ █▄▀▄▄  ██▄▀▄▀▄█ 
+ █▄ █▄ ▄█▄█▄▀▀▀ ▄█▄█▀▄ █▀▀▄▄▀▄ 
+ ███▄█▀▄   █ ▀▄█▀ █████▄▄█▀█▄▄ 
+ ▄▄▄▄▄▄▄ █▄ █▄ ██▀ █ █ ▄ █ ██  
+ █ ▄▄▄ █ █ ▀██▄██▀▀▄ █▄▄▄██▄▄  
+ █ ███ █ ▀▄▀▄ ▀▄▄ ▄█▀▀ ▄▄▄██▄▄ 
+ █▄▄▄▄▄█ ▄█ ▄█  ▄▀▄█ ▄▀ ▄▄▄▀ ▀ 
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+Public address: 0x87f00B2c39F97CD00BC6d09777BC4327aCA39180 
+
+-- localhost -- 📡
+   balance: 0
+   nonce: 0
+
+```
+
+&nbsp;
+
+✅ Step 3: Deploy! ✅
+
+Now we can deploy to our testnet of choice... in this example we will deploy to sepolia.
+
+```
+yarn deploy --network sepolia
+```
+
+If all is well you should see the followng success output.
+
+```
+deploying "YourContract" (tx: 0xf404021d736271a7a0a84d124ed35250c533efe37c1775367b6510a8836bf0bd)...: deployed at 0x541D469C06990B7F0bd5103b57997cE8a39C050c with 605281 gas
+📝 Updated TypeScript contract definition file on ../nextjs/generated/deployedContracts.ts
+```
+
+✅ Step 4: Verification ✅
+
+```
+yarn verify --network sepolia
+```
+
+You should see the following successful output...
+
+```
+verifying YourContract (0x541D469C06990B7F0bd5103b57997cE8a39C050c) ...
+waiting for result...
+ => contract YourContract is now verified
+```
+
+
+&nbsp;
+
 ## 💁🏻 Resources / More help!
 
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
