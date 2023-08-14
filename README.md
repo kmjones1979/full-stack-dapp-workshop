@@ -78,7 +78,7 @@ If you navigate to http://localhost:3000 you should see the NextJS application. 
 
 > Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
-- Clean up any old data and spin up our docker containers
+- ✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
 
 First run the following to clean up any old data. Do this if you need to reset everything.
 
@@ -96,11 +96,11 @@ This will spin up all the containers for The Graph using docker-compose. You wil
 
 > As stated before, be sure to keep this window open so that you can see any log output from Docker. 🔎
 
-- Create and ship our Subgraph
+- ✅ Step 2: Create and ship our Subgraph ✅
 
-> Now we can open up a fourth window to finish setting up The Graph. 😅
+Now we can open up a fourth window to finish setting up The Graph. 😅 In this forth window we will create our local subgraph! 
 
-In this forth window we will create our local subgraph! You will only need to do this once.
+> Note: You will only need to do this once.
 
 ```
 yarn local-create
@@ -139,7 +139,7 @@ Subgraph endpoints:
 Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contract
 ```
 
-- Test your Subgraph
+- ✅ Step 3: Test your Subgraph ✅
 
 Go ahead and head over to your subgraph endpoint and take a look!
 
@@ -169,6 +169,8 @@ Next up we will dive into a bit more detail on how The Graph works so that as yo
 # 🧑🏼‍💻 Adding more events / Subgraph updates 👩🏽‍💻
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
+
+- ✅ Step 1: Add an event to our contract ✅
 
 > Open up YourContract.sol under packages/hardhat/contracts
 
