@@ -992,6 +992,21 @@ Firt, update the query to grab sendMessages as the data object.
 
 ```
 
+Update our query syntax to match the new schema.
+
+```
+export const GET_MESSAGES = gql`
+{
+  sendMessages(first: 5) {
+    id
+    _from
+    _to
+    message
+  }
+}
+`;
+```
+
 Then we can update the table as well.
 
 ```
@@ -1028,11 +1043,43 @@ This might take some time, so grab a coffee. ☕
 yarn vercel:yolo
 ```
 
+```
+Vercel CLI 28.20.0
+? Set up and deploy “~/projects/ethereum/scaffold-eth-2-subgraph-package-workshop/packages/nextjs”? [Y/n] 
+y
+? Which scope do you want to deploy to? myscope
+? Link to existing project? [y/N] n
+? What’s your project’s name? sendMessage
+? In which directory is your code located? ./
+Local settings detected in vercel.json:
+Auto-detected Project Settings (Next.js):
+- Build Command: next build
+- Development Command: next dev --port $PORT
+- Install Command: `yarn install`, `pnpm install`, or `npm install`
+- Output Directory: Next.js default
+? Want to modify these settings? [y/N] n
+🔗  Linked to kevin-kevinjonescr/testing (created .vercel)
+🔍  Inspect: https://vercel.com/kevin-kevinjonescr/testing/E2rfnyzC4ud5DskrwhybQ4Hiicjx [2s]
+✅  Production: https://testing-red.vercel.app [3m]
+📝  Deployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).
+💡  To change the domain or build command, go to https://vercel.com/kevin-kevinjonescr/testing/settings
+╭──────────────────────────────────────────────────────────╮
+│                                                          │
+│           Update available! v28.20.0 ≫ v31.2.3           │
+│   Changelog: https://github.com/vercel/vercel/releases   │
+│         Run `yarn add vercel@latest` to update.          │
+│                                                          │
+╰──────────────────────────────────────────────────────────╯
+
+```
+
 &nbsp;
 
 ## 💁🏻 Resources / More help!
-
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
+- [Scaffold-ETH Hooks](https://github.com/scaffold-eth/eth-ui/blob/next/packages/eth-hooks/README.md)
+- [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
+- [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
 - [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
 - [Kevin's Mirror.xyz post](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
 - [Scaffold-ETH Stuff](https://hihello.me/p/b914b816-fb27-4909-9525-16c74c7e7eef)
