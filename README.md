@@ -415,6 +415,7 @@ Consult the following documentation to learn more about our implementation.
 - [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
 - [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
 
+&nbsp;
 
 ✅ Step 1: Start with a clean slate in your index.ts file ✅
 
@@ -451,6 +452,7 @@ const Home: NextPage = () => {
 export default Home;
 ```
 
+&nbsp;
 
 ✅ Step 2: Create a Address and Balance component ✅
 
@@ -473,6 +475,7 @@ Add the following to index.ts just above return.
   const { address } = useAccount();
 ```
 
+&nbsp;
 
 ✅ Step 3: Display the current greeting ✅
 
@@ -491,6 +494,7 @@ Add the needed variable above your return to get the data from Scaffold-ETH hook
   });
 ```
 
+&nbsp;
 
 ✅ Step 4: Create an Address and Balance component for your contract ✅
 
@@ -509,6 +513,7 @@ We can fill this data using useDeployedContractInfo() from the hooks.
   const { data: yourContract } = useDeployedContractInfo("YourContract");
 ```
 
+&nbsp;
 
 ✅ Step 5: Create a input field and button for our setGreeting function ✅
 
@@ -542,6 +547,7 @@ For this we also need to use react state to keep track of what we type along wit
   });
 ```
 
+&nbsp;
 
 ✅ Step 6: Create input fields and button for our sendMessage function ✅
 
@@ -584,6 +590,7 @@ We will need two states and also the useScaffoldContractWrite() hook with the ne
   });
 ```
 
+&nbsp;
 
 ✅ Step 7: Display our messages in a table format ✅
 
@@ -647,6 +654,7 @@ Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
 - [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
+- [Kevin's Mirror.xyz post](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
 - [Scaffold-ETH Stuff](https://hihello.me/p/b914b816-fb27-4909-9525-16c74c7e7eef)
 - [Scaffold-ETH Workshops at ETH Global](https://www.youtube.com/results?search_query=Scaffold-ETH+Workshop+ETHGlobal+Kevin+Jones)
 - [The Graph Workshops at ETH Global](https://www.youtube.com/results?search_query=The+Graph+Workshop+ETHGlobal)
