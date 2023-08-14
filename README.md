@@ -1043,6 +1043,8 @@ This might take some time, so grab a coffee. ☕
 yarn vercel:yolo
 ```
 
+You should see the following prompts.
+
 ```
 Vercel CLI 28.20.0
 ? Set up and deploy “~/projects/ethereum/scaffold-eth-2-subgraph-package-workshop/packages/nextjs”? [Y/n] 
@@ -1063,14 +1065,6 @@ Auto-detected Project Settings (Next.js):
 ✅  Production: https://testing-red.vercel.app [3m]
 📝  Deployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).
 💡  To change the domain or build command, go to https://vercel.com/kevin-kevinjonescr/testing/settings
-╭──────────────────────────────────────────────────────────╮
-│                                                          │
-│           Update available! v28.20.0 ≫ v31.2.3           │
-│   Changelog: https://github.com/vercel/vercel/releases   │
-│         Run `yarn add vercel@latest` to update.          │
-│                                                          │
-╰──────────────────────────────────────────────────────────╯
-
 ```
 
 &nbsp;
