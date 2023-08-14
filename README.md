@@ -1,6 +1,13 @@
 # 🧙🏻‍♂️ An Introduction to Full Stack dapp Development 💻
 
-This workshop is built around Scaffold-ETH 2 and The Graph.
+This workshop is built around Scaffold-ETH 2 and The Graph. You will learn how to:
+
+1. Setup a development environment for your dapp using Scaffold-ETH 2 and The Graph
+2. Update and deploy your smart contract
+3. Create and deploy a Subgraph to The Graph
+4. Edit your frontend to interact with both your smart contract and Subgraph
+
+&nbsp;
 
 ## ✅ Requirements
 
@@ -11,7 +18,8 @@ Before you begin, you need to install the following tools:
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## 🏗 Scaffold-ETH 2
+
+# 🏗 Scaffold-ETH 2
 
 🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
@@ -21,11 +29,14 @@ Before you begin, you need to install the following tools:
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
-## 🧑🏼‍🚀 The Graph
+
+# 🧑🏼‍🚀 The Graph
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
-Graph Node is an open source Rust implementation that event sources the Ethereum blockchain to deterministically update a data store that can be queried via the GraphQL endpoint.
+- 🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
+- 🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
+- 🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
 
 For detailed instructions and more context, check out the [Getting Started Guide](docs/getting-started.md).
 
@@ -383,6 +394,9 @@ Consult the following documentation to learn more about our implementation.
 - [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
 - [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
 
+
+✅ Step 1: Start with a clean slate in your index.ts file ✅
+
 First let's import everything we will need into our index.ts file. You can also clean out all the info in the return.
 
 > this file is located in packages/nextjs/pages
@@ -416,6 +430,9 @@ const Home: NextPage = () => {
 export default Home;
 ```
 
+
+✅ Step 2: Create a Address and Balance component ✅
+
 Next we will want to add a div and drop in the following...
 
 ```
@@ -435,6 +452,9 @@ Add the following to index.ts just above return.
   const { address } = useAccount();
 ```
 
+
+✅ Step 3: Display the current greeting ✅
+
 Next we can create a div to show the greeting.
 
 ```
@@ -450,6 +470,9 @@ Add the needed variable above your return to get the data from Scaffold-ETH hook
   });
 ```
 
+
+✅ Step 4: Create an Address and Balance component for your contract ✅
+
 Next we we will get our contracts address and balance.
 
 ```
@@ -464,6 +487,9 @@ We can fill this data using useDeployedContractInfo() from the hooks.
 ```
   const { data: yourContract } = useDeployedContractInfo("YourContract");
 ```
+
+
+✅ Step 5: Create a input field and button for our setGreeting function ✅
 
 Now we need an input field and button to update our greeting using setGreeting...
 
@@ -494,6 +520,9 @@ For this we also need to use react state to keep track of what we type along wit
     args: [newGreeting],
   });
 ```
+
+
+✅ Step 6: Create input fields and button for our sendMessage function ✅
 
 Now lets add the message receipient and message field with a button.
 
@@ -533,6 +562,9 @@ We will need two states and also the useScaffoldContractWrite() hook with the ne
     args: [newReceiver, newMessage],
   });
 ```
+
+
+✅ Step 7: Display our messages in a table format ✅
 
 Lastly a table to display our messages.
 
