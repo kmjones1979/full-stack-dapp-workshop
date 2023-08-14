@@ -352,7 +352,7 @@ export function handleMessage(event: SendMessage): void {
 }
 ```
 
-After that is done, you are almost done… Simple ship it!
+After that is done, you are almost done… time to ship it!
 
 
 ✅ Step 6: Ship your updated Subgraph ✅
