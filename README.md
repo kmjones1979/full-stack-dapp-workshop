@@ -20,7 +20,7 @@ Before you begin, you need to install the following tools:
 
 &nbsp;
 
-# 🏗 Scaffold-ETH 2
+## 🏗 Scaffold-ETH 2
 
 🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
@@ -34,7 +34,7 @@ To learn more about Scaffold-ETH checkout the [Github repository](https://github
 
 &nbsp;
 
-# 🧑🏼‍🚀 The Graph
+## 🧑🏼‍🚀 The Graph
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
@@ -46,7 +46,7 @@ For detailed instructions and more context, check out the [Getting Started Guide
 
 &nbsp;
 
-# 🖥️ Setup Scaffold-ETH Subgraph Package
+## 🖥️ Setup Scaffold-ETH Subgraph Package
 
 First, we will start out with a special build of Scaffold-ETH 2 written by Simon from Edge and Node… Thanks Simon! 🫡
 
@@ -91,7 +91,7 @@ If you navigate to http://localhost:3000 you should see the NextJS application. 
 
 &nbsp;
 
-# 🚀 Setup The Graph Integration
+## 🚀 Setup The Graph Integration
 
 Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
@@ -187,7 +187,7 @@ Next up we will dive into a bit more detail on how The Graph works so that as yo
 
 &nbsp;
 
-# 🧑🏼‍💻 Adding more events / Subgraph updates 👩🏽‍💻
+## 🧑🏼‍💻 Adding more events / Subgraph updates 👩🏽‍💻
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
 
@@ -382,7 +382,7 @@ Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 &nbsp;
 
-# 🌎 Frontend Development! ✍🏼
+## 🌎 Frontend Development! ✍🏼
 
 Ok so we have successfully created a new function, event and updated our Subgraph to index the data. Now lets lean a bit on the frontend. Scaffold-ETH provides a lot of useful components and boilerplate code that makes it easy to build out a UI.
 
@@ -628,7 +628,7 @@ If you want to see the full complete file you can do so [here](https://gist.gith
 
 &nbsp;
 
-### 💁🏻 Resources / More help!
+## 💁🏻 Resources / More help!
 
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
 - [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
