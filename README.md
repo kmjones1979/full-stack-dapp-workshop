@@ -126,7 +126,7 @@ Subgraph endpoints:
 Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contract
 ```
 
-> Go ahead and head over to your subgraph endpoint and take a look!
+Go ahead and head over to your subgraph endpoint and take a look!
 
 > Here is an example query…
 
@@ -148,8 +148,186 @@ Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contr
 
 > If all is well and you’ve sent a transaction to your smart contract then you will see a similar data output!
 
-> Next up we will dive into a bit more detail on how The Graph works so that as you start adding events to your smart contract you can start indexing and parsing the data you need for your front end application.
+Next up we will dive into a bit more detail on how The Graph works so that as you start adding events to your smart contract you can start indexing and parsing the data you need for your front end application.
 
+
+### Adding more events to your contract and modifications to your Subgraph
+
+Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
+
+> Open up YourContract.sol under packages/hardhat/contracts
+
+Add the following new code.
+
+```
+    event SendMessage(address _from, address _to, string message);
+
+    function sendMessage(address _to, string calldata message) external {
+        emit SendMessage(msg.sender, _to, message);
+    }
+```
+
+We can save our contract and then deploy those new changes.
+
+```
+yarn deploy --reset
+```
+
+Navigate over to http://localhost:3000/debug and send vitalik.eth a message.
+
+After you add an event to your smart contract, you will need to first update the GraphQL schema to include the entities you want to store on your Graph node. If you want to catch up on entities here is a good link to the docs for that.
+
+So, using our message example above, if we wanted to create entities for the Message, the Messenger and the Receiver… this is probably a concise example on how we could link that data using our schema.
+
+> The schema file is located in packages/subgraph/src/schema.graphql
+
+```
+type Message @entity {
+  id: ID!
+  _from: Messenger!
+  _to: Receiver!
+  message: String!
+  createdAt: BigInt!
+  transactionHash: String!
+}
+
+type Messenger @entity {
+  id: ID!
+  address: Bytes!
+  messages: [Message!] @derivedFrom(field: "_from")
+  createdAt: BigInt!
+  messageCount: BigInt!
+}
+
+type Receiver @entity {
+  id: ID!
+  address: Bytes!
+  createdAt: BigInt!
+  messageCount: BigInt!
+}
+```
+
+You will also need to add these entities to the Subgraph YAML configuration and also add the event handlers as well.
+
+> This file is located in packages/subgraph/subgraph.yaml
+
+```
+entities:
+        - Greeting
+        - Sender
+        - Message
+        - Messenger
+        - Receiver
+```
+
+```
+eventHandlers:
+        - event: SendMessage(address,address,string)
+          handler: handleMessage
+```
+
+If you are following along, next you will need to copy over your new abi and regenerate the code.
+
+```
+yarn abi-copy && yarn codegen
+```
+
+Next you will need to update the mappings for the files we have edited above.
+
+> The file is located under packages/subgraph/src/mapping.ts
+
+```
+import {
+  YourContract,
+  GreetingChange,
+  SendMessage,
+} from "../generated/YourContract/YourContract";
+```
+
+As well as the schema we edited earlier.
+
+```
+import {
+  Greeting,
+  Sender,
+  Messenger,
+  Receiver,
+  Message,
+} from "../generated/schema";
+```
+
+Lastly, we will need to add the mapping function.
+
+```
+export function handleMessage(event: SendMessage): void {
+  let messengerString = event.params._from.toHexString();
+  let receiverString = event.params._to.toHexString();
+
+  let messenger = Messenger.load(messengerString);
+
+  if (messenger === null) {
+    messenger = new Messenger(messengerString);
+    messenger.address = event.params._from;
+    messenger.createdAt = event.block.timestamp;
+    messenger.messageCount = BigInt.fromI32(1);
+  } else {
+    messenger.messageCount = messenger.messageCount.plus(BigInt.fromI32(1));
+  }
+
+  let receiver = Receiver.load(receiverString);
+
+  if (receiver === null) {
+    receiver = new Receiver(receiverString);
+    receiver.address = event.params._from;
+    receiver.createdAt = event.block.timestamp;
+    receiver.messageCount = BigInt.fromI32(1);
+  } else {
+    receiver.messageCount = receiver.messageCount.plus(BigInt.fromI32(1));
+  }
+
+  let message = new Message(
+    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  );
+
+  message.message = event.params.message;
+  message._from = messengerString;
+  message._to = receiverString;
+  message.createdAt = event.block.timestamp;
+  message.transactionHash = event.transaction.hash.toHex();
+
+  receiver.save();
+  messenger.save();
+  message.save();
+}
+```
+
+After that is done, you are almost done… Simple ship it!
+
+```
+yarn local-ship
+```
+
+If you want to test this out on your own instance of Scaffold-ETH, navigate over to the Debug Contracts tab. Here you can draft up a message and fire it off.
+
+Next, lets see if our data is in The Graph. Here is an example query that shows us the first message.
+
+```
+{
+    messages(first: 1, orderBy: createdAt, orderDirection: asc) {
+      id
+      _from {
+        messages(first: 1) {
+          message
+        }
+      }
+    }
+  }
+```
+
+Woohoo! You did it… I guess you are ready for a hackathon eh?
+
+
+### Frontend!!!
 
 ### Resources / More help!
 
