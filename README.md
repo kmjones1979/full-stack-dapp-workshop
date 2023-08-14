@@ -95,6 +95,7 @@ If you navigate to http://localhost:3000 you should see the NextJS application. 
 
 Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
+&nbsp;
 
 ✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
 
@@ -114,6 +115,7 @@ This will spin up all the containers for The Graph using docker-compose. You wil
 
 > As stated before, be sure to keep this window open so that you can see any log output from Docker. 🔎
 
+&nbsp;
 
 ✅ Step 2: Create and ship our Subgraph ✅
 
@@ -158,6 +160,7 @@ Subgraph endpoints:
 Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contract
 ```
 
+&nbsp;
 
 ✅ Step 3: Test your Subgraph ✅
 
@@ -191,6 +194,7 @@ Next up we will dive into a bit more detail on how The Graph works so that as yo
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
 
+&nbsp;
 
 ✅ Step 1: Add an event to our contract ✅
 
@@ -212,11 +216,13 @@ We can save our contract and then deploy those new changes.
 yarn deploy --reset
 ```
 
+&nbsp;
 
 ✅ Step 2: Test your new function ✅
 
 Navigate over to http://localhost:3000/debug and send vitalik.eth a message. 
 
+&nbsp;
 
 ✅ Step 3: Update the GraphQL schema ✅
 
@@ -252,6 +258,7 @@ type Receiver @entity {
 }
 ```
 
+&nbsp;
 
 ✅ Step 4: Update the Subgraph manifest ✅
 
@@ -280,6 +287,7 @@ If you are following along, next you will need to copy over your new abi and reg
 yarn abi-copy && yarn codegen
 ```
 
+&nbsp;
 
 ✅ Step 5: Update the mapping script ✅
 
@@ -354,6 +362,7 @@ export function handleMessage(event: SendMessage): void {
 
 After that is done, you are almost done… time to ship it!
 
+&nbsp;
 
 ✅ Step 6: Ship your updated Subgraph ✅
 
@@ -363,6 +372,7 @@ yarn local-ship
 
 If you want to test this out on your own instance of Scaffold-ETH, navigate over to the Debug Contracts tab. Here you can draft up a message and fire it off.
 
+&nbsp;
 
 ✅ Step 7: Test your newly deployed Subgraph ✅
 
