@@ -252,6 +252,7 @@ type Receiver @entity {
 }
 ```
 
+
 ✅ Step 4: Update the Subgraph manifest ✅
 
 You will also need to add these entities to the Subgraph YAML configuration and also add the event handlers as well.
@@ -353,6 +354,7 @@ export function handleMessage(event: SendMessage): void {
 
 After that is done, you are almost done… Simple ship it!
 
+
 ✅ Step 6: Ship your updated Subgraph ✅
 
 ```
@@ -379,7 +381,7 @@ Next, lets see if our data is in The Graph. Here is an example query that shows 
   }
 ```
 
-Woohoo! You did it… I guess you are ready for a hackathon eh?
+Data is such a beautiful thing huh? 
 
 &nbsp;
 
@@ -626,6 +628,8 @@ And then load the data like so...
 ```
 
 If you want to see the full complete file you can do so [here](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)!
+
+Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 &nbsp;
 
