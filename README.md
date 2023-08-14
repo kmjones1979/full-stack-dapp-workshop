@@ -76,9 +76,10 @@ If you navigate to http://localhost:3000 you should see the NextJS application. 
 
 # 🚀 Setup The Graph Integration
 
-> Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
+Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
-- ✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
+
+✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
 
 First run the following to clean up any old data. Do this if you need to reset everything.
 
@@ -96,7 +97,8 @@ This will spin up all the containers for The Graph using docker-compose. You wil
 
 > As stated before, be sure to keep this window open so that you can see any log output from Docker. 🔎
 
-- ✅ Step 2: Create and ship our Subgraph ✅
+
+✅ Step 2: Create and ship our Subgraph ✅
 
 Now we can open up a fourth window to finish setting up The Graph. 😅 In this forth window we will create our local subgraph! 
 
@@ -139,7 +141,8 @@ Subgraph endpoints:
 Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contract
 ```
 
-- ✅ Step 3: Test your Subgraph ✅
+
+✅ Step 3: Test your Subgraph ✅
 
 Go ahead and head over to your subgraph endpoint and take a look!
 
@@ -170,7 +173,8 @@ Next up we will dive into a bit more detail on how The Graph works so that as yo
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
 
-- ✅ Step 1: Add an event to our contract ✅
+
+✅ Step 1: Add an event to our contract ✅
 
 > Open up YourContract.sol under packages/hardhat/contracts
 
@@ -190,7 +194,12 @@ We can save our contract and then deploy those new changes.
 yarn deploy --reset
 ```
 
-Navigate over to http://localhost:3000/debug and send vitalik.eth a message.
+✅ Step 2: Test your new function ✅
+
+Navigate over to http://localhost:3000/debug and send vitalik.eth a message. 
+
+
+✅ Step 3: Update the GraphQL schema ✅
 
 After you add an event to your smart contract, you will need to first update the GraphQL schema to include the entities you want to store on your Graph node. If you want to catch up on entities here is a good link to the docs for that.
 
@@ -224,6 +233,8 @@ type Receiver @entity {
 }
 ```
 
+✅ Step 4: Update the Subgraph manifest ✅
+
 You will also need to add these entities to the Subgraph YAML configuration and also add the event handlers as well.
 
 > This file is located in packages/subgraph/subgraph.yaml
@@ -248,6 +259,9 @@ If you are following along, next you will need to copy over your new abi and reg
 ```
 yarn abi-copy && yarn codegen
 ```
+
+
+✅ Step 5: Update the mapping script ✅
 
 Next you will need to update the mappings for the files we have edited above.
 
@@ -320,11 +334,16 @@ export function handleMessage(event: SendMessage): void {
 
 After that is done, you are almost done… Simple ship it!
 
+✅ Step 6: Ship your updated Subgraph ✅
+
 ```
 yarn local-ship
 ```
 
 If you want to test this out on your own instance of Scaffold-ETH, navigate over to the Debug Contracts tab. Here you can draft up a message and fire it off.
+
+
+✅ Step 7: Test your newly deployed Subgraph ✅
 
 Next, lets see if our data is in The Graph. Here is an example query that shows us the first message.
 
