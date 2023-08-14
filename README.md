@@ -21,6 +21,14 @@ Before you begin, you need to install the following tools:
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
+## The Graph
+
+[The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
+
+Graph Node is an open source Rust implementation that event sources the Ethereum blockchain to deterministically update a data store that can be queried via the GraphQL endpoint.
+
+For detailed instructions and more context, check out the [Getting Started Guide](docs/getting-started.md).
+
 
 # Setup Scaffold-ETH Subgraph Package
 
@@ -342,6 +350,12 @@ We will create the following:
 - A button to send the 'sendMessage' transaction
 - A table to display our messages
 
+Consult the following documentation to learn more about our implementation.
+- [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
+- [Scaffold-ETH Hooks](https://github.com/scaffold-eth/eth-ui/blob/next/packages/eth-hooks/README.md)
+- [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
+- [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
+
 First let's import everything we will need into our index.ts file. You can also clean out all the info in the return.
 
 > this file is located in packages/nextjs/pages
@@ -391,7 +405,7 @@ We will use useAccount() from wagmi to get what we need and display it with Addr
 Add the following to index.ts just above return.
 
 ```
-const { address } = useAccount();
+  const { address } = useAccount();
 ```
 
 Next we can create a div to show the greeting.
@@ -547,7 +561,6 @@ If you want to see the full complete file you can do so [here](https://gist.gith
 
 ### Resources / More help!
 
-- [Example UI](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
 - [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
 - [Scaffold-ETH Stuff](https://hihello.me/p/b914b816-fb27-4909-9525-16c74c7e7eef)
