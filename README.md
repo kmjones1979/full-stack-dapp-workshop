@@ -18,6 +18,7 @@ Before you begin, you need to install the following tools:
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://docs.docker.com/get-docker/)
 
+&nbsp;
 
 # 🏗 Scaffold-ETH 2
 
@@ -29,6 +30,9 @@ Before you begin, you need to install the following tools:
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
+To learn more about Scaffold-ETH checkout the [Github repository](https://github.com/scaffold-eth/scaffold-eth-2).
+
+&nbsp;
 
 # 🧑🏼‍🚀 The Graph
 
@@ -38,8 +42,9 @@ Before you begin, you need to install the following tools:
 - 🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
 - 🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
 
-For detailed instructions and more context, check out the [Getting Started Guide](docs/getting-started.md).
+For detailed instructions and more context, check out the [Getting Started Guide](https://thegraph.com/docs/en/cookbook/quick-start).
 
+&nbsp;
 
 # 🖥️ Setup Scaffold-ETH Subgraph Package
 
@@ -84,6 +89,7 @@ yarn deploy
 
 If you navigate to http://localhost:3000 you should see the NextJS application. Explore the menus and features of Scaffold-ETH 2! Someone call in an emergency, cause hot damn that is fire! 🔥
 
+&nbsp;
 
 # 🚀 Setup The Graph Integration
 
@@ -179,6 +185,7 @@ Go ahead and head over to your subgraph endpoint and take a look!
 
 Next up we will dive into a bit more detail on how The Graph works so that as you start adding events to your smart contract you can start indexing and parsing the data you need for your front end application.
 
+&nbsp;
 
 # 🧑🏼‍💻 Adding more events / Subgraph updates 👩🏽‍💻
 
@@ -373,6 +380,7 @@ Next, lets see if our data is in The Graph. Here is an example query that shows 
 
 Woohoo! You did it… I guess you are ready for a hackathon eh?
 
+&nbsp;
 
 # 🌎 Frontend Development! ✍🏼
 
@@ -617,6 +625,8 @@ And then load the data like so...
 ```
 
 If you want to see the full complete file you can do so [here](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)!
+
+&nbsp;
 
 ### 💁🏻 Resources / More help!
 
