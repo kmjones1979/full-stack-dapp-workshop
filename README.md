@@ -152,7 +152,7 @@ Go ahead and head over to your subgraph endpoint and take a look!
 Next up we will dive into a bit more detail on how The Graph works so that as you start adding events to your smart contract you can start indexing and parsing the data you need for your front end application.
 
 
-# Adding more events to your contract and modifications to your Subgraph
+# Adding more events / Subgraph updates
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
 
@@ -497,7 +497,7 @@ Lastly a table to display our messages.
 
 ```
         <h1>Messages</h1>
-        <table className="min-w-full">
+        <table className="min-w-[70%]">
           <thead>
             <tr>
               <th>From</th>
