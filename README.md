@@ -65,7 +65,8 @@ yarn deploy
 
 If you navigate to http://localhost:3000 you should see the NextJS application. Explore the menus and features of Scaffold-ETH 2! Someone call in an emergency, cause hot damn that is fire! 🔥
 
-### Setup The Graph Integration
+
+# Setup The Graph Integration
 
 > Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
@@ -151,7 +152,7 @@ Go ahead and head over to your subgraph endpoint and take a look!
 Next up we will dive into a bit more detail on how The Graph works so that as you start adding events to your smart contract you can start indexing and parsing the data you need for your front end application.
 
 
-### Adding more events to your contract and modifications to your Subgraph
+# Adding more events to your contract and modifications to your Subgraph
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
 
@@ -327,7 +328,7 @@ Next, lets see if our data is in The Graph. Here is an example query that shows 
 Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 
-### Frontend!!!
+# Frontend Development!
 
 Ok so we have successfully created a new function, event and updated our Subgraph to index the data. Now lets lean a bit on the frontend. Scaffold-ETH provides a lot of useful components and boilerplate code that makes it easy to build out a UI.
 
