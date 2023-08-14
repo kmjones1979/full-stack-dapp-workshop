@@ -1,8 +1,8 @@
-# An Introduction to Full Stack dapp Development
+# 🧙🏻‍♂️ An Introduction to Full Stack dapp Development 💻
 
 This workshop is built around Scaffold-ETH 2 and The Graph.
 
-## Requirements
+## ✅ Requirements
 
 Before you begin, you need to install the following tools:
 
@@ -21,7 +21,7 @@ Before you begin, you need to install the following tools:
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
-## The Graph
+## 🧑🏼‍🚀 The Graph
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
@@ -30,7 +30,7 @@ Graph Node is an open source Rust implementation that event sources the Ethereum
 For detailed instructions and more context, check out the [Getting Started Guide](docs/getting-started.md).
 
 
-# Setup Scaffold-ETH Subgraph Package
+# 🖥️ Setup Scaffold-ETH Subgraph Package
 
 First, we will start out with a special build of Scaffold-ETH 2 written by Simon from Edge and Node… Thanks Simon! 🫡
 
@@ -74,7 +74,7 @@ yarn deploy
 If you navigate to http://localhost:3000 you should see the NextJS application. Explore the menus and features of Scaffold-ETH 2! Someone call in an emergency, cause hot damn that is fire! 🔥
 
 
-# Setup The Graph Integration
+# 🚀 Setup The Graph Integration
 
 > Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
@@ -160,7 +160,7 @@ Go ahead and head over to your subgraph endpoint and take a look!
 Next up we will dive into a bit more detail on how The Graph works so that as you start adding events to your smart contract you can start indexing and parsing the data you need for your front end application.
 
 
-# Adding more events / Subgraph updates
+# 🧑🏼‍💻 Adding more events / Subgraph updates 👩🏽‍💻
 
 Now we want to start making some changes to our contract. We will create a new function and a new event for that function.
 
@@ -336,7 +336,7 @@ Next, lets see if our data is in The Graph. Here is an example query that shows 
 Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 
-# Frontend Development!
+# 🌎 Frontend Development! ✍🏼
 
 Ok so we have successfully created a new function, event and updated our Subgraph to index the data. Now lets lean a bit on the frontend. Scaffold-ETH provides a lot of useful components and boilerplate code that makes it easy to build out a UI.
 
@@ -559,7 +559,7 @@ And then load the data like so...
 
 If you want to see the full complete file you can do so [here](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)!
 
-### Resources / More help!
+### 💁🏻 Resources / More help!
 
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
 - [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
