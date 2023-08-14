@@ -650,7 +650,7 @@ Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 &nbsp;
 
-## 🌎 Ship to a testnet
+## ⛵ Ship to a testnet
 
 Next we want to take our smart contract and deploy it to a testnet!
 
@@ -722,6 +722,8 @@ deploying "YourContract" (tx: 0xf404021d736271a7a0a84d124ed35250c533efe37c177536
 📝 Updated TypeScript contract definition file on ../nextjs/generated/deployedContracts.ts
 ```
 
+&nbsp;
+
 ✅ Step 4: Verification ✅
 
 ```
@@ -735,7 +737,296 @@ verifying YourContract (0x541D469C06990B7F0bd5103b57997cE8a39C050c) ...
 waiting for result...
  => contract YourContract is now verified
 ```
+ 
+ You can also check your contract was successfully on etherscan. [Here](https://sepolia.etherscan.io/address/0x541D469C06990B7F0bd5103b57997cE8a39C050c#code) is the one I deployed and verified.
 
+&nbsp;
+
+## Migrating you Subgraph to the Studio
+
+Now that our smart contract is on a public testnet it is time to push our Subgraph to the Studio.
+
+&nbsp;
+
+✅ Step 1: Create your Subgraph on the Studio ✅
+
+- Navigate to https://thegraph.com/studio
+- Connect your wallet
+- Click Create a Subgraph
+- Name your Subgraph
+- Select the test network you deployed to in previous steps
+
+&nbsp;
+
+✅ Step 2: Install the Graph CLI ✅
+
+You can install the Graph CLI globally using the following command.
+
+```
+yarn global add @graphprotocol/graph-cli
+```
+
+&nbsp;
+
+✅ Step 3: Init your Subgraph ✅
+
+This can be done in a separate folder of your choosing, since it will initate a yarn package. You will need to fill in the required configuration during the initialization process.The Start Block - Can be found on Etherescan if needed so you don't have to index the entire previous blocks.
+
+```
+graph init --studio name_of_your_subgraph
+```
+
+It should looks something like this...
+
+```
+✔ Protocol · ethereum
+✔ Subgraph slug · sendmessage
+✔ Directory to create the subgraph in · sendmessage
+✔ Ethereum network · sepolia
+✔ Contract address · 0x541D469C06990B7F0bd5103b57997cE8a39C050c
+✔ Fetching ABI from Etherscan
+✖ Failed to fetch Start Block: Failed to fetch contract creation transaction hash
+  
+✔ Start Block · 4089059
+✔ Contract Name · Contract
+✔ Index contract events as entities (Y/n) · true
+  Generate subgraph
+  Write subgraph to directory
+✔ Create subgraph scaffold
+✔ Initialize networks config
+✔ Initialize subgraph repository
+✔ Install dependencies with yarn
+✔ Generate ABI and schema types with yarn codegen
+Add another contract? (y/n): 
+Subgraph sendmessage created in sendmessage
+```
+
+&nbsp;
+
+✅ Step 4: Authenticate to Studio ✅
+
+Grab your authentication string from Auth & Deploy on Subgraph Studio.
+
+```
+graph auth --studio auth_key_here
+```
+
+Success looks like this:
+
+```
+Deploy key set for https://api.studio.thegraph.com/deploy/
+```
+
+&nbsp;
+
+✅ Step 5: Run codegen and build your subgraph ✅
+
+You will need to change into the directory where the subgraph was created in the previous step.
+
+```
+cd sendmessage
+graph codegen && graph build
+```
+
+Success will look something like the following!
+
+```
+✔ Apply migrations
+✔ Load subgraph from subgraph.yaml
+  Load contract ABI from abis/Contract.json
+✔ Load contract ABIs
+  Generate types for contract ABI: Contract (abis/Contract.json)
+  Write types to generated/Contract/Contract.ts
+✔ Generate types for contract ABIs
+✔ Generate types for data source templates
+✔ Load data source template ABIs
+✔ Generate types for data source template ABIs
+✔ Load GraphQL schema from schema.graphql
+  Write types to generated/schema.ts
+✔ Generate types for GraphQL schema
+
+Types generated successfully
+
+  Skip migration: Bump mapping apiVersion from 0.0.1 to 0.0.2
+  Skip migration: Bump mapping apiVersion from 0.0.2 to 0.0.3
+  Skip migration: Bump mapping apiVersion from 0.0.3 to 0.0.4
+  Skip migration: Bump mapping apiVersion from 0.0.4 to 0.0.5
+  Skip migration: Bump mapping apiVersion from 0.0.5 to 0.0.6
+  Skip migration: Bump manifest specVersion from 0.0.1 to 0.0.2
+  Skip migration: Bump manifest specVersion from 0.0.2 to 0.0.4
+✔ Apply migrations
+✔ Load subgraph from subgraph.yaml
+  Compile data source: Contract => build/Contract/Contract.wasm
+✔ Compile subgraph
+  Copy schema file build/schema.graphql
+  Write subgraph file build/Contract/abis/Contract.json
+  Write subgraph manifest build/subgraph.yaml
+✔ Write compiled subgraph to build/
+
+Build completed: build/subgraph.yaml
+
+```
+
+&nbsp;
+
+✅ Step 6: Deploy ✅
+
+Now we are ready to deploy to the Studio
+
+```
+graph deploy --studio name_of_your_subgraph
+```
+
+Choose a version and fire away!
+
+```
+Which version label to use? (e.g. "v0.0.1"): 0.0.1
+  Skip migration: Bump mapping apiVersion from 0.0.1 to 0.0.2
+  Skip migration: Bump mapping apiVersion from 0.0.2 to 0.0.3
+  Skip migration: Bump mapping apiVersion from 0.0.3 to 0.0.4
+  Skip migration: Bump mapping apiVersion from 0.0.4 to 0.0.5
+  Skip migration: Bump mapping apiVersion from 0.0.5 to 0.0.6
+  Skip migration: Bump manifest specVersion from 0.0.1 to 0.0.2
+  Skip migration: Bump manifest specVersion from 0.0.2 to 0.0.4
+✔ Apply migrations
+✔ Load subgraph from subgraph.yaml
+  Compile data source: Contract => build/Contract/Contract.wasm
+✔ Compile subgraph
+  Copy schema file build/schema.graphql
+  Write subgraph file build/Contract/abis/Contract.json
+  Write subgraph manifest build/subgraph.yaml
+✔ Write compiled subgraph to build/
+  Add file to IPFS build/schema.graphql
+                .. QmTLSV6vUwnPYyi9oqMJ3Ds3TkgE1A8PEaYa5yhbd3y73b
+  Add file to IPFS build/Contract/abis/Contract.json
+                .. QmT5j3kGMkVjUVaW8MhMKRSnZXdTDrTSUcf5MC9hFKNHYf
+  Add file to IPFS build/Contract/Contract.wasm
+                .. QmeuaTgxLJKp8N2R2RCiQFvJa1fPz81tytc4xECBoRCpjv
+✔ Upload subgraph to IPFS
+
+Build completed: QmUqgKBRWxFGNG6oPZuZxuCwJbEvKe6UbKCe8WTcDJvusk
+```
+
+&nbsp;
+
+✅ Step 7: Send a transaction and verify in Subgraph Playground ✅
+
+On Etherscan you can send a transaction directly to your contract on the Contract -> Write Contract tab.
+
+Our Query:
+
+```
+{
+  sendMessages(first: 5) {
+    id
+    _from
+    _to
+    message
+  }
+}
+```
+
+Our data object response: 
+
+```
+{
+  "data": {
+    "sendMessages": [
+      {
+        "id": "0x053e32f85f9f485334119585abfc73e507a4ce86e968130b90410df70eb3a66e71000000",
+        "_from": "0x142cd5d7ac1ea8919f1644af1870792b9f77d44a",
+        "_to": "0x007e483cf6df009db5ec571270b454764d954d95",
+        "message": "I love you"
+      }
+    ]
+  }
+}
+```
+
+
+
+&nbsp;
+
+## Updating and deploying our Frontend
+
+Now that we have our contract deployed to a testnet and the data is getting indexed in Subgraph Studio. It is time to update our frontend.
+
+&nbsp;
+
+✅ Step 1: Update the Scaffold-ETH config ✅
+
+Update the configuration to point to the testnet that you deployed to in previous steps.
+
+> The scaffold.config.ts is located in packages/nextjs
+
+```
+  targetNetwork: chains.sepolia,
+```
+
+&nbsp;
+
+✅ Step 2: Update our GraphQL URL to point to our development endpoint ✅
+
+The development endpoint for your subgraph can be found on the details tab in Subgraph Studio.
+
+> Edit _app.tsx located in packages/nextjs/pages
+
+```
+  const subgraphUri = "https://api.studio.thegraph.com/query/51078/sendmessage-test/version/latest";
+  const apolloClient = new ApolloClient({
+    uri: subgraphUri,
+    cache: new InMemoryCache(),
+  });
+```
+
+&nbsp;
+
+✅ Step 3: Fix our query and table ✅
+
+We generated a completely new schema and Subgraph configuration when we used the CLI so we should go in and update both to fix the data query and table configuration.
+
+Firt, update the query to grab sendMessages as the data object.
+
+```
+  const messages = messagesData?.sendMessages || []; 
+
+```
+
+Then we can update the table as well.
+
+```
+        <h1>Messages</h1>
+        <table className="min-w-[70%]">
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {messages.map((message) => (
+              <tr key={message.id}>
+                <td>{message._from}</td>
+                <td>{message._to}</td>
+                <td>{message.message}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+```
+
+&nbsp;
+
+✅ Step 4: YOLO Vercel! ✅
+
+Last step is to push our frontend to vercel! This is easy with the following command, which essentiall skips build errors with the following command line switches 'vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true'
+
+This might take some time, so grab a coffee. ☕
+
+```
+yarn vercel:yolo
+```
 
 &nbsp;
 
