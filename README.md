@@ -196,7 +196,7 @@ Now we want to start making some changes to our contract. We will create a new f
 
 &nbsp;
 
-✅ Step 1: Add an event to our contract ✅
+### ✅ Step 1: Add an event to our contract ✅
 
 > Open up YourContract.sol under packages/hardhat/contracts
 
@@ -218,13 +218,13 @@ yarn deploy --reset
 
 &nbsp;
 
-✅ Step 2: Test your new function ✅
+### ✅ Step 2: Test your new function ✅
 
 Navigate over to http://localhost:3000/debug and send vitalik.eth a message. 
 
 &nbsp;
 
-✅ Step 3: Update the GraphQL schema ✅
+### ✅ Step 3: Update the GraphQL schema ✅
 
 After you add an event to your smart contract, you will need to first update the GraphQL schema to include the entities you want to store on your Graph node. If you want to catch up on entities here is a good link to the docs for that.
 
@@ -260,7 +260,7 @@ type Receiver @entity {
 
 &nbsp;
 
-✅ Step 4: Update the Subgraph manifest ✅
+### ✅ Step 4: Update the Subgraph manifest ✅
 
 You will also need to add these entities to the Subgraph YAML configuration and also add the event handlers as well.
 
@@ -289,7 +289,7 @@ yarn abi-copy && yarn codegen
 
 &nbsp;
 
-✅ Step 5: Update the mapping script ✅
+### ✅ Step 5: Update the mapping script ✅
 
 Next you will need to update the mappings for the files we have edited above.
 
@@ -400,14 +400,14 @@ Data is such a beautiful thing huh?
 Ok so we have successfully created a new function, event and updated our Subgraph to index the data. Now lets lean a bit on the frontend. Scaffold-ETH provides a lot of useful components and boilerplate code that makes it easy to build out a UI.
 
 We will create the following:
-- An Address component
-- A Balance component
-- An input field to update our greeting
-- A button to send the 'setGreeting' transaction
-- An input field for our message reciever
-- A message input for that message
-- A button to send the 'sendMessage' transaction
-- A table to display our messages
+- Address component for our wallet
+- Balance component for our wallet
+- Input field to update our greeting
+- Button to send the 'setGreeting' transaction
+- Input field for our reciever
+- Input field for our message
+- Button to send the 'sendMessage' transaction
+- Table to display our messages
 
 Consult the following documentation to learn more about our implementation.
 - [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
@@ -417,7 +417,7 @@ Consult the following documentation to learn more about our implementation.
 
 &nbsp;
 
-✅ Step 1: Start with a clean slate in your index.ts file ✅
+### ✅ Step 1: Start with a clean slate in your index.ts file ✅
 
 First let's import everything we will need into our index.ts file. You can also clean out all the info in the return.
 
