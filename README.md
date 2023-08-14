@@ -22,7 +22,7 @@ Before you begin, you need to install the following tools:
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
 
-### Setup Scaffold-ETH Subgraph Package
+# Setup Scaffold-ETH Subgraph Package
 
 First, we will start out with a special build of Scaffold-ETH 2 written by Simon from Edge and Node… Thanks Simon! 🫡
 
@@ -328,6 +328,221 @@ Woohoo! You did it… I guess you are ready for a hackathon eh?
 
 
 ### Frontend!!!
+
+Ok so we have successfully created a new function, event and updated our Subgraph to index the data. Now lets lean a bit on the frontend. Scaffold-ETH provides a lot of useful components and boilerplate code that makes it easy to build out a UI.
+
+We will create the following:
+- An Address component
+- A Balance component
+- An input field to update our greeting
+- A button to send the 'setGreeting' transaction
+- An input field for our message reciever
+- A message input for that message
+- A button to send the 'sendMessage' transaction
+- A table to display our messages
+
+First let's import everything we will need into our index.ts file. You can also clean out all the info in the return.
+
+> this file is located in packages/nextjs/pages
+
+It should look something like this...
+
+```
+import type { NextPage } from "next";
+import { MetaHeader } from "~~/components/MetaHeader";
+
+import { useAccount } from "wagmi";
+import { Address, AddressInput, Balance } from "~~/components/scaffold-eth";
+import {
+  useAccountBalance,
+  useDeployedContractInfo,
+  useScaffoldContractRead,
+  useScaffoldContractWrite,
+} from "~~/hooks/scaffold-eth";
+import { useState } from "react";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+
+const Home: NextPage = () => {
+  return (
+    <>
+      <MetaHeader />
+    </>
+  );
+};
+
+export default Home;
+```
+
+Next we will want to add a div and drop in the following...
+
+```
+      <div className="flex items-center flex-col flex-grow pt-10">
+        <div>
+          <Address address={address} />
+          <Balance address={address} />
+        </div>
+      </div>
+```
+
+We will use useAccount() from wagmi to get what we need and display it with Address and Balance from Scaffold-ETH components.
+
+Add the following to index.ts just above return.
+
+```
+const { address } = useAccount();
+```
+
+Next we can create a div to show the greeting.
+
+```
+<div className="p-5 font-black text-xl">{greeting}</div>
+```
+
+Add the needed variable above your return to get the data from Scaffold-ETH hooks.
+
+```
+  const { data: greeting } = useScaffoldContractRead({
+    contractName: "YourContract",
+    functionName: "greeting",
+  });
+```
+
+Next we we will get our contracts address and balance.
+
+```
+        <div>
+          <Address address={yourContract?.address} />
+          <Balance address={yourContract?.address} />
+        </div>
+```
+
+We can fill this data using useDeployedContractInfo() from the hooks.
+
+```
+  const { data: yourContract } = useDeployedContractInfo("YourContract");
+```
+
+Now we need an input field and button to update our greeting using setGreeting...
+
+```
+        <div className="p-5">
+          <input
+            value={newGreeting}
+            placeholder="Type here"
+            className="input"
+            onChange={(e) => setNewGreeting(e.target.value)}
+          />
+        </div>
+        <div className="p-5">
+          <button className="btn btn-primary" onClick={setGreeting}>
+            Set Greeting
+          </button>
+        </div>
+```
+
+For this we also need to use react state to keep track of what we type along with a useScaffoldContractWrite() hook.
+
+```
+  const [newGreeting, setNewGreeting] = useState("");
+
+  const { writeAsync: setGreeting } = useScaffoldContractWrite({
+    contractName: "YourContract",
+    functionName: "setGreeting",
+    args: [newGreeting],
+  });
+```
+
+Now lets add the message receipient and message field with a button.
+
+```
+        <div className="p-5">
+        <AddressInput
+            value={newReceiver}
+            placeholder="Recepient?"
+            name={address}
+            onChange={setNewReceiver}
+          />
+        </div>
+        <div className="p-5">
+          <input
+            value={newMessage}
+            placeholder="Message"
+            className="input"
+            onChange={(e) => setNewMessage(e.target.value)}
+          />
+        </div>
+        <div className="p-5">
+          <button className="btn btn-primary" onClick={sendMessage}>
+            Send Message
+          </button>
+        </div>
+```
+
+We will need two states and also the useScaffoldContractWrite() hook with the needed arguments.
+
+```
+  const [newReceiver, setNewReceiver] = useState("");
+  const [newMessage, setNewMessage] = useState("");
+
+  const { writeAsync: sendMessage } = useScaffoldContractWrite({
+    contractName: "YourContract",
+    functionName: "sendMessage",
+    args: [newReceiver, newMessage],
+  });
+```
+
+Lastly a table to display our messages.
+
+```
+        <h1>Messages</h1>
+        <table className="min-w-full">
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {messages.map((message) => (
+              <tr key={message.id}>
+                <td>{message._from.id}</td>
+                <td>{message._to.id}</td>
+                <td>{message.message}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+```
+
+We should create a const with our GraphQL query outside of the main function.
+
+```
+export const GET_MESSAGES = gql`
+query MyQuery {
+  messages(first: 10, orderDirection: desc, orderBy: createdAt) {
+    message
+    _to {
+      id
+    }
+    _from {
+      id
+    }
+  }
+}
+`;
+```
+
+And then load the data like so...
+
+```
+  const { loading, error, data: messagesData } = useQuery(GET_MESSAGES);
+
+  const messages = messagesData?.messages || [];
+```
+
+If you want to see the full complete file you can do so [here](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)!
 
 ### Resources / More help!
 
