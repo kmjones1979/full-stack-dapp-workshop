@@ -97,7 +97,7 @@ Now that we have spun up our blockchain, started our frontend application and de
 
 &nbsp;
 
-✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
+#### ✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
 
 First run the following to clean up any old data. Do this if you need to reset everything.
 
@@ -117,7 +117,7 @@ This will spin up all the containers for The Graph using docker-compose. You wil
 
 &nbsp;
 
-✅ Step 2: Create and ship our Subgraph ✅
+#### ✅ Step 2: Create and ship our Subgraph ✅
 
 Now we can open up a fourth window to finish setting up The Graph. 😅 In this forth window we will create our local subgraph! 
 
@@ -162,7 +162,7 @@ Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contr
 
 &nbsp;
 
-✅ Step 3: Test your Subgraph ✅
+#### ✅ Step 3: Test your Subgraph ✅
 
 Go ahead and head over to your subgraph endpoint and take a look!
 
@@ -196,7 +196,7 @@ Now we want to start making some changes to our contract. We will create a new f
 
 &nbsp;
 
-### ✅ Step 1: Add an event to our contract ✅
+#### ✅ Step 1: Add an event to our contract ✅
 
 > Open up YourContract.sol under packages/hardhat/contracts
 
@@ -218,13 +218,13 @@ yarn deploy --reset
 
 &nbsp;
 
-### ✅ Step 2: Test your new function ✅
+#### ✅ Step 2: Test your new function ✅
 
 Navigate over to http://localhost:3000/debug and send vitalik.eth a message. 
 
 &nbsp;
 
-### ✅ Step 3: Update the GraphQL schema ✅
+#### ✅ Step 3: Update the GraphQL schema ✅
 
 After you add an event to your smart contract, you will need to first update the GraphQL schema to include the entities you want to store on your Graph node. If you want to catch up on entities here is a good link to the docs for that.
 
@@ -260,7 +260,7 @@ type Receiver @entity {
 
 &nbsp;
 
-### ✅ Step 4: Update the Subgraph manifest ✅
+#### ✅ Step 4: Update the Subgraph manifest ✅
 
 You will also need to add these entities to the Subgraph YAML configuration and also add the event handlers as well.
 
@@ -289,7 +289,7 @@ yarn abi-copy && yarn codegen
 
 &nbsp;
 
-### ✅ Step 5: Update the mapping script ✅
+#### ✅ Step 5: Update the mapping script ✅
 
 Next you will need to update the mappings for the files we have edited above.
 
@@ -364,7 +364,7 @@ After that is done, you are almost done… time to ship it!
 
 &nbsp;
 
-✅ Step 6: Ship your updated Subgraph ✅
+#### ✅ Step 6: Ship your updated Subgraph ✅
 
 ```
 yarn local-ship
@@ -374,7 +374,7 @@ If you want to test this out on your own instance of Scaffold-ETH, navigate over
 
 &nbsp;
 
-✅ Step 7: Test your newly deployed Subgraph ✅
+#### ✅ Step 7: Test your newly deployed Subgraph ✅
 
 Next, lets see if our data is in The Graph. Here is an example query that shows us the first message.
 
@@ -417,7 +417,7 @@ Consult the following documentation to learn more about our implementation.
 
 &nbsp;
 
-### ✅ Step 1: Start with a clean slate in your index.ts file ✅
+#### ✅ Step 1: Start with a clean slate in your index.ts file ✅
 
 First let's import everything we will need into our index.ts file. You can also clean out all the info in the return.
 
@@ -454,7 +454,7 @@ export default Home;
 
 &nbsp;
 
-✅ Step 2: Create a Address and Balance component ✅
+#### ✅ Step 2: Create a Address and Balance component ✅
 
 Next we will want to add a div and drop in the following...
 
@@ -477,7 +477,7 @@ Add the following to index.ts just above return.
 
 &nbsp;
 
-✅ Step 3: Display the current greeting ✅
+#### ✅ Step 3: Display the current greeting ✅
 
 Next we can create a div to show the greeting.
 
@@ -496,7 +496,7 @@ Add the needed variable above your return to get the data from Scaffold-ETH hook
 
 &nbsp;
 
-✅ Step 4: Create an Address and Balance component for your contract ✅
+#### ✅ Step 4: Create an Address and Balance component for your contract ✅
 
 Next we we will get our contracts address and balance.
 
@@ -515,7 +515,7 @@ We can fill this data using useDeployedContractInfo() from the hooks.
 
 &nbsp;
 
-✅ Step 5: Create a input field and button for our setGreeting function ✅
+#### ✅ Step 5: Create a input field and button for our setGreeting function ✅
 
 Now we need an input field and button to update our greeting using setGreeting...
 
@@ -549,7 +549,7 @@ For this we also need to use react state to keep track of what we type along wit
 
 &nbsp;
 
-✅ Step 6: Create input fields and button for our sendMessage function ✅
+#### ✅ Step 6: Create input fields and button for our sendMessage function ✅
 
 Now lets add the message receipient and message field with a button.
 
@@ -592,7 +592,7 @@ We will need two states and also the useScaffoldContractWrite() hook with the ne
 
 &nbsp;
 
-✅ Step 7: Display our messages in a table format ✅
+#### ✅ Step 7: Display our messages in a table format ✅
 
 Lastly a table to display our messages.
 
@@ -656,7 +656,7 @@ Next we want to take our smart contract and deploy it to a testnet!
 
 &nbsp;
 
-✅ Step 1: Create a deployer account ✅
+#### ✅ Step 1: Create a deployer account ✅
 
 ```
 yarn run generate
@@ -670,7 +670,7 @@ You should see the following saved to your hardhats environment variable file
 
 &nbsp;
 
-✅ Step 2: Fund the account ✅
+#### ✅ Step 2: Fund the account ✅
 
 ```
 yarn account
@@ -707,7 +707,7 @@ Public address: 0x87f00B2c39F97CD00BC6d09777BC4327aCA39180
 
 &nbsp;
 
-✅ Step 3: Deploy! ✅
+#### ✅ Step 3: Deploy! ✅
 
 Now we can deploy to our testnet of choice... in this example we will deploy to sepolia.
 
@@ -724,7 +724,7 @@ deploying "YourContract" (tx: 0xf404021d736271a7a0a84d124ed35250c533efe37c177536
 
 &nbsp;
 
-✅ Step 4: Verification ✅
+#### ✅ Step 4: Verification ✅
 
 ```
 yarn verify --network sepolia
@@ -748,7 +748,7 @@ Now that our smart contract is on a public testnet it is time to push our Subgra
 
 &nbsp;
 
-✅ Step 1: Create your Subgraph on the Studio ✅
+#### ✅ Step 1: Create your Subgraph on the Studio ✅
 
 - Navigate to https://thegraph.com/studio
 - Connect your wallet
@@ -758,7 +758,7 @@ Now that our smart contract is on a public testnet it is time to push our Subgra
 
 &nbsp;
 
-✅ Step 2: Install the Graph CLI ✅
+#### ✅ Step 2: Install the Graph CLI ✅
 
 You can install the Graph CLI globally using the following command.
 
@@ -768,7 +768,7 @@ yarn global add @graphprotocol/graph-cli
 
 &nbsp;
 
-✅ Step 3: Init your Subgraph ✅
+#### ✅ Step 3: Init your Subgraph ✅
 
 This can be done in a separate folder of your choosing, since it will initate a yarn package. You will need to fill in the required configuration during the initialization process.The Start Block - Can be found on Etherescan if needed so you don't have to index the entire previous blocks.
 
@@ -803,7 +803,7 @@ Subgraph sendmessage created in sendmessage
 
 &nbsp;
 
-✅ Step 4: Authenticate to Studio ✅
+#### ✅ Step 4: Authenticate to Studio ✅
 
 Grab your authentication string from Auth & Deploy on Subgraph Studio.
 
@@ -819,7 +819,7 @@ Deploy key set for https://api.studio.thegraph.com/deploy/
 
 &nbsp;
 
-✅ Step 5: Run codegen and build your subgraph ✅
+#### ✅ Step 5: Run codegen and build your subgraph ✅
 
 You will need to change into the directory where the subgraph was created in the previous step.
 
@@ -869,7 +869,7 @@ Build completed: build/subgraph.yaml
 
 &nbsp;
 
-✅ Step 6: Deploy ✅
+#### ✅ Step 6: Deploy ✅
 
 Now we are ready to deploy to the Studio
 
@@ -909,7 +909,7 @@ Build completed: QmUqgKBRWxFGNG6oPZuZxuCwJbEvKe6UbKCe8WTcDJvusk
 
 &nbsp;
 
-✅ Step 7: Send a transaction and verify in Subgraph Playground ✅
+#### ✅ Step 7: Send a transaction and verify in Subgraph Playground ✅
 
 On Etherscan you can send a transaction directly to your contract on the Contract -> Write Contract tab.
 
@@ -953,7 +953,7 @@ Now that we have our contract deployed to a testnet and the data is getting inde
 
 &nbsp;
 
-✅ Step 1: Update the Scaffold-ETH config ✅
+#### ✅ Step 1: Update the Scaffold-ETH config ✅
 
 Update the configuration to point to the testnet that you deployed to in previous steps.
 
@@ -965,7 +965,7 @@ Update the configuration to point to the testnet that you deployed to in previou
 
 &nbsp;
 
-✅ Step 2: Update our GraphQL URL to point to our development endpoint ✅
+#### ✅ Step 2: Update our GraphQL URL to point to our development endpoint ✅
 
 The development endpoint for your subgraph can be found on the details tab in Subgraph Studio.
 
@@ -981,7 +981,7 @@ The development endpoint for your subgraph can be found on the details tab in Su
 
 &nbsp;
 
-✅ Step 3: Fix our query and table ✅
+#### ✅ Step 3: Fix our query and table ✅
 
 We generated a completely new schema and Subgraph configuration when we used the CLI so we should go in and update both to fix the data query and table configuration.
 
@@ -1033,7 +1033,7 @@ Then we can update the table as well.
 
 &nbsp;
 
-✅ Step 4: YOLO Vercel! ✅
+#### ✅ Step 4: YOLO Vercel! ✅
 
 Last step is to push our frontend to vercel! This is easy with the following command, which essentiall skips build errors with the following command line switches 'vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true'
 
