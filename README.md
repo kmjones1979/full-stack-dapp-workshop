@@ -212,6 +212,7 @@ We can save our contract and then deploy those new changes.
 yarn deploy --reset
 ```
 
+
 ✅ Step 2: Test your new function ✅
 
 Navigate over to http://localhost:3000/debug and send vitalik.eth a message. 
