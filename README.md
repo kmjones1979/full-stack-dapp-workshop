@@ -78,7 +78,7 @@ If you navigate to http://localhost:3000 you should see the NextJS application. 
 
 > Now that we have spun up our blockchain, started our frontend application and deployed our smart contract, we can start setting up our subgraph and utilize The Graph!
 
-1. Clean up any old data and spin up our docker containers
+- Clean up any old data and spin up our docker containers
 
 First run the following to clean up any old data. Do this if you need to reset everything.
 
@@ -96,7 +96,7 @@ This will spin up all the containers for The Graph using docker-compose. You wil
 
 > As stated before, be sure to keep this window open so that you can see any log output from Docker. 🔎
 
-2. Create and ship our Subgraph
+- Create and ship our Subgraph
 
 > Now we can open up a fourth window to finish setting up The Graph. 😅
 
@@ -139,7 +139,7 @@ Subgraph endpoints:
 Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contract
 ```
 
-3. Test your Subgraph
+- Test your Subgraph
 
 Go ahead and head over to your subgraph endpoint and take a look!
 
