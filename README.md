@@ -644,7 +644,7 @@ And then load the data like so...
   const messages = messagesData?.messages || [];
 ```
 
-If you want to see the full complete file you can do so [here](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)!
+> Note: If you want to see the full complete file you can do so [here](https://gist.github.com/kmjones1979/26ef9633b61b17f237e88eb41bb688de)!
 
 Woohoo! You did it… I guess you are ready for a hackathon eh?
 
