@@ -7,6 +7,8 @@ This workshop is built around Scaffold-ETH 2 and The Graph. You will learn how t
 3. Create and deploy a Subgraph to The Graph
 4. Edit your frontend to interact with both your smart contract and Subgraph
 
+&nbsp;
+
 ## 🎥 Workshop replay
 
 [![Workshop Replay](https://img.youtube.com/vi/Gspa3YL6Rqk/0.jpg)](https://www.youtube.com/watch?v=Gspa3YL6Rqk)
