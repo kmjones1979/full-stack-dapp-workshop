@@ -7,7 +7,7 @@ This workshop is built around Scaffold-ETH 2 and The Graph. You will learn how t
 3. Create and deploy a Subgraph to The Graph
 4. Edit your frontend to interact with both your smart contract and Subgraph
 
-The URL for this tutorial is located at [bit.ly/fullstackdapp](https://github.com/kmjones1979/full-stack-dapp-workshop.git)
+The URL for this tutorial is located at [bit.ly/fullstackdapp](https://github.com/kmjones1979/full-stack-dapp-workshop/blob/main/README.md)
 
 &nbsp;
 
