@@ -123,6 +123,28 @@ This will spin up all the containers for The Graph using docker-compose. You wil
 
 > As stated before, be sure to keep this window open so that you can see any log output from Docker. 🔎
 
+> NOTE FOR LINUX USERS: If you are running Linux you will need some additional changes to the project.
+
+##### Linux Only
+
+Update your package.json in packages/hardhat with the following command line option for the hardhat chain.
+
+```
+"chain": "hardhat node --network hardhat --no-deploy --hostname 0.0.0.0"
+```
+
+Save the file and then restart your chain in its original window.
+
+```
+yarn chain
+```
+
+You might also need to add a firewall exception for port 8432. As an example for Ubuntu... run the following command.
+
+```
+sudo ufw allow 8545/tcp
+```
+
 &nbsp;
 
 #### ✅ Step 2: Create and ship our Subgraph ✅
