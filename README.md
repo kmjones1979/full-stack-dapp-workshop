@@ -21,10 +21,10 @@ The URL for this tutorial is located at [bit.ly/fullstackdapp](https://github.co
 
 Before you begin, you need to install the following tools:
 
-- [Node.js](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
-- [Docker](https://docs.docker.com/get-docker/)
+-   [Node.js](https://nodejs.org/en/download/)
+-   Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
+-   [Git](https://git-scm.com/downloads)
+-   [Docker](https://docs.docker.com/get-docker/)
 
 &nbsp;
 
@@ -34,9 +34,9 @@ Before you begin, you need to install the following tools:
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+-   ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
+-   🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
+-   🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
 To learn more about Scaffold-ETH checkout the [Github repository](https://github.com/scaffold-eth/scaffold-eth-2).
 
@@ -46,9 +46,9 @@ To learn more about Scaffold-ETH checkout the [Github repository](https://github
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
-- 🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
-- 🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
-- 🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
+-   🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
+-   🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
+-   🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
 
 For detailed instructions and more context, check out the [Getting Started Guide](https://thegraph.com/docs/en/cookbook/quick-start).
 
@@ -105,7 +105,7 @@ Now that we have spun up our blockchain, started our frontend application and de
 
 &nbsp;
 
-#### ✅ Step 1: Clean up any old data and spin up our docker containers ✅ 
+#### ✅ Step 1: Clean up any old data and spin up our docker containers ✅
 
 First run the following to clean up any old data. Do this if you need to reset everything.
 
@@ -149,7 +149,7 @@ sudo ufw allow 8545/tcp
 
 #### ✅ Step 2: Create and ship our Subgraph ✅
 
-Now we can open up a fourth window to finish setting up The Graph. 😅 In this forth window we will create our local subgraph! 
+Now we can open up a fourth window to finish setting up The Graph. 😅 In this forth window we will create our local subgraph!
 
 > Note: You will only need to do this once.
 
@@ -167,11 +167,11 @@ yarn local-ship
 
 > This command does the following all in one… 🚀🚀🚀
 
-- Copies the contracts ABI from the hardhat/deployments folder
-- Generates the networks.json file
-- Generates AssemblyScript types from the subgraph schema and the contract ABIs.
-- Compiles and checks the mapping functions.
-- … and deploy a local subgraph!
+-   Copies the contracts ABI from the hardhat/deployments folder
+-   Generates the networks.json file
+-   Generates AssemblyScript types from the subgraph schema and the contract ABIs.
+-   Compiles and checks the mapping functions.
+-   … and deploy a local subgraph!
 
 > If you get an error ts-node you can install it with the following command
 
@@ -250,7 +250,7 @@ yarn deploy --reset
 
 #### ✅ Step 2: Test your new function ✅
 
-Navigate over to http://localhost:3000/debug and send vitalik.eth a message. 
+Navigate over to http://localhost:3000/debug and send vitalik.eth a message.
 
 &nbsp;
 
@@ -387,7 +387,7 @@ export function handleMessage(event: SendMessage): void {
   receiver.save();
   messenger.save();
   message.save();
-}
+}y
 ```
 
 After that is done, you are almost done… time to ship it!
@@ -421,7 +421,7 @@ Next, lets see if our data is in The Graph. Here is an example query that shows 
   }
 ```
 
-Data is such a beautiful thing huh? 
+Data is such a beautiful thing huh?
 
 &nbsp;
 
@@ -430,35 +430,40 @@ Data is such a beautiful thing huh?
 Ok so we have successfully created a new function, event and updated our Subgraph to index the data. Now lets lean a bit on the frontend. Scaffold-ETH provides a lot of useful components and boilerplate code that makes it easy to build out a UI.
 
 We will create the following:
-- Address component for our wallet
-- Balance component for our wallet
-- Input field to update our greeting
-- Button to send the 'setGreeting' transaction
-- Input field for our reciever
-- Input field for our message
-- Button to send the 'sendMessage' transaction
-- Table to display our messages
+
+-   Address component for our wallet
+-   Balance component for our wallet
+-   Input field to update our greeting
+-   Button to send the 'setGreeting' transaction
+-   Input field for our reciever
+-   Input field for our message
+-   Button to send the 'sendMessage' transaction
+-   Table to display our messages
 
 Consult the following documentation to learn more about our implementation.
-- [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
-- [Scaffold-ETH Hooks](https://github.com/scaffold-eth/eth-ui/blob/next/packages/eth-hooks/README.md)
-- [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
-- [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
+
+-   [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
+-   [Scaffold-ETH Hooks](https://github.com/scaffold-eth/eth-ui/blob/next/packages/eth-hooks/README.md)
+-   [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
+-   [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
 
 &nbsp;
 
 #### ✅ Step 1: Start with a clean slate in your index.ts file ✅
 
-First let's import everything we will need into our index.ts file. You can also clean out all the info in the return.
+First let's import everything we will need into our page.tsx file. You can also clean out all the info in the return.
 
-> this file is located in packages/nextjs/pages
+> this file is located in packages/nextjs/app/
 
-It should look something like this...
+It should look like this...
 
 ```
-import type { NextPage } from "next";
-import { MetaHeader } from "~~/components/MetaHeader";
+"use client";
 
+import { useState } from "react";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { Address, AddressInput, Balance } from "~~/components/scaffold-eth";
 import {
@@ -467,16 +472,9 @@ import {
   useScaffoldContractRead,
   useScaffoldContractWrite,
 } from "~~/hooks/scaffold-eth";
-import { useState } from "react";
-import { gql } from "@apollo/client";
-import { useQuery } from "@apollo/client";
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <MetaHeader />
-    </>
-  );
+  return <></>;
 };
 
 export default Home;
@@ -693,6 +691,7 @@ yarn run generate
 ```
 
 You should see the following saved to your hardhats environment variable file
+
 ```
 👛 Generating new Wallet
 📄 Private Key saved to packages/hardhat/.env file
@@ -710,24 +709,24 @@ This should display your public address along with a fancy QR code. And balances
 
 ```
 
- ▄▄▄▄▄▄▄ ▄  ▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ 
- █ ▄▄▄ █ █▀▀▄ █▀█▄ ▄▄█ █ ▄▄▄ █ 
- █ ███ █ ▄▄██▀▄█ ▀ ███ █ ███ █ 
- █▄▄▄▄▄█ ▄▀▄▀▄▀▄▀▄ █ ▄ █▄▄▄▄▄█ 
- ▄  ▄▄▄▄▄▄▀█▄▀▄█▄▄ ▄█▀▄  ▄ ▄▄▄ 
- ▄▀▀█ █▄██▀▀▀▀▄█▀▀▄█▄██▀▄▄█▀█  
-   ▀▄▄ ▄█▄▄▄▀ █▀▄▀▀▄▄█ ██▀█ ▄▀ 
- ▄█▀▀██▄ ▀▄   █ ▀  ▀█ ▀▄▀█▄███ 
- ▄█▀██ ▄▄▄ ▀ ▄ █▄▀▄▄  ██▄▀▄▀▄█ 
- █▄ █▄ ▄█▄█▄▀▀▀ ▄█▄█▀▄ █▀▀▄▄▀▄ 
- ███▄█▀▄   █ ▀▄█▀ █████▄▄█▀█▄▄ 
- ▄▄▄▄▄▄▄ █▄ █▄ ██▀ █ █ ▄ █ ██  
- █ ▄▄▄ █ █ ▀██▄██▀▀▄ █▄▄▄██▄▄  
- █ ███ █ ▀▄▀▄ ▀▄▄ ▄█▀▀ ▄▄▄██▄▄ 
- █▄▄▄▄▄█ ▄█ ▄█  ▄▀▄█ ▄▀ ▄▄▄▀ ▀ 
+ ▄▄▄▄▄▄▄ ▄  ▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄
+ █ ▄▄▄ █ █▀▀▄ █▀█▄ ▄▄█ █ ▄▄▄ █
+ █ ███ █ ▄▄██▀▄█ ▀ ███ █ ███ █
+ █▄▄▄▄▄█ ▄▀▄▀▄▀▄▀▄ █ ▄ █▄▄▄▄▄█
+ ▄  ▄▄▄▄▄▄▀█▄▀▄█▄▄ ▄█▀▄  ▄ ▄▄▄
+ ▄▀▀█ █▄██▀▀▀▀▄█▀▀▄█▄██▀▄▄█▀█
+   ▀▄▄ ▄█▄▄▄▀ █▀▄▀▀▄▄█ ██▀█ ▄▀
+ ▄█▀▀██▄ ▀▄   █ ▀  ▀█ ▀▄▀█▄███
+ ▄█▀██ ▄▄▄ ▀ ▄ █▄▀▄▄  ██▄▀▄▀▄█
+ █▄ █▄ ▄█▄█▄▀▀▀ ▄█▄█▀▄ █▀▀▄▄▀▄
+ ███▄█▀▄   █ ▀▄█▀ █████▄▄█▀█▄▄
+ ▄▄▄▄▄▄▄ █▄ █▄ ██▀ █ █ ▄ █ ██
+ █ ▄▄▄ █ █ ▀██▄██▀▀▄ █▄▄▄██▄▄
+ █ ███ █ ▀▄▀▄ ▀▄▄ ▄█▀▀ ▄▄▄██▄▄
+ █▄▄▄▄▄█ ▄█ ▄█  ▄▀▄█ ▄▀ ▄▄▄▀ ▀
 ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
-Public address: 0x87f00B2c39F97CD00BC6d09777BC4327aCA39180 
+Public address: 0x87f00B2c39F97CD00BC6d09777BC4327aCA39180
 
 -- localhost -- 📡
    balance: 0
@@ -739,10 +738,12 @@ Public address: 0x87f00B2c39F97CD00BC6d09777BC4327aCA39180
 
 #### ✅ Step 3: Deploy! ✅
 
-Now we can deploy to our testnet of choice... in this example we will deploy to sepolia.
+Now we can deploy to our testnet of choice...
+
+> The entire list of available networks can be found in `hardhat.config.ts` located in `packages/hardhat`
 
 ```
-yarn deploy --network sepolia
+yarn deploy --network name
 ```
 
 If all is well you should see the followng success output.
@@ -757,7 +758,7 @@ deploying "YourContract" (tx: 0xf404021d736271a7a0a84d124ed35250c533efe37c177536
 #### ✅ Step 4: Verification ✅
 
 ```
-yarn verify --network sepolia
+yarn verify --network name
 ```
 
 You should see the following successful output...
@@ -767,8 +768,8 @@ verifying YourContract (0x541D469C06990B7F0bd5103b57997cE8a39C050c) ...
 waiting for result...
  => contract YourContract is now verified
 ```
- 
- You can also check your contract was successfully on etherscan. [Here](https://sepolia.etherscan.io/address/0x541D469C06990B7F0bd5103b57997cE8a39C050c#code) is the one I deployed and verified.
+
+You can also check your contract was successfully on etherscan. [Here](https://sepolia.etherscan.io/address/0x541D469C06990B7F0bd5103b57997cE8a39C050c#code) is the one I deployed and verified on sepolia.
 
 &nbsp;
 
@@ -780,11 +781,11 @@ Now that our smart contract is on a public testnet it is time to push our Subgra
 
 #### ✅ Step 1: Create your Subgraph on the Studio ✅
 
-- Navigate to https://thegraph.com/studio
-- Connect your wallet
-- Click Create a Subgraph
-- Name your Subgraph
-- Select the test network you deployed to in previous steps
+-   Navigate to https://thegraph.com/studio
+-   Connect your wallet
+-   Click Create a Subgraph
+-   Name your Subgraph
+-   Select the test network you deployed to in previous steps
 
 &nbsp;
 
@@ -816,7 +817,7 @@ It should looks something like this...
 ✔ Contract address · 0x541D469C06990B7F0bd5103b57997cE8a39C050c
 ✔ Fetching ABI from Etherscan
 ✖ Failed to fetch Start Block: Failed to fetch contract creation transaction hash
-  
+
 ✔ Start Block · 4089059
 ✔ Contract Name · Contract
 ✔ Index contract events as entities (Y/n) · true
@@ -827,7 +828,7 @@ It should looks something like this...
 ✔ Initialize subgraph repository
 ✔ Install dependencies with yarn
 ✔ Generate ABI and schema types with yarn codegen
-Add another contract? (y/n): 
+Add another contract? (y/n):
 Subgraph sendmessage created in sendmessage
 ```
 
@@ -956,7 +957,7 @@ Our Query:
 }
 ```
 
-Our data object response: 
+Our data object response:
 
 ```
 {
@@ -972,8 +973,6 @@ Our data object response:
   }
 }
 ```
-
-
 
 &nbsp;
 
@@ -999,7 +998,7 @@ Update the configuration to point to the testnet that you deployed to in previou
 
 The development endpoint for your subgraph can be found on the details tab in Subgraph Studio.
 
-> Edit _app.tsx located in packages/nextjs/pages
+> Edit \_app.tsx located in packages/nextjs/pages
 
 ```
   const subgraphUri = "https://api.studio.thegraph.com/query/51078/sendmessage-test/version/latest";
@@ -1018,7 +1017,7 @@ We generated a completely new schema and Subgraph configuration when we used the
 Firt, update the query to grab sendMessages as the data object.
 
 ```
-  const messages = messagesData?.sendMessages || []; 
+  const messages = messagesData?.sendMessages || [];
 
 ```
 
@@ -1077,7 +1076,7 @@ You should see the following prompts.
 
 ```
 Vercel CLI 28.20.0
-? Set up and deploy “~/projects/ethereum/scaffold-eth-2-subgraph-package-workshop/packages/nextjs”? [Y/n] 
+? Set up and deploy “~/projects/ethereum/scaffold-eth-2-subgraph-package-workshop/packages/nextjs”? [Y/n]
 y
 ? Which scope do you want to deploy to? myscope
 ? Link to existing project? [y/N] n
@@ -1100,16 +1099,17 @@ Auto-detected Project Settings (Next.js):
 &nbsp;
 
 ## 💁🏻 Resources / More help!
-- [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
-- [Scaffold-ETH Hooks](https://github.com/scaffold-eth/eth-ui/blob/next/packages/eth-hooks/README.md)
-- [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
-- [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
-- [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
-- [Kevin's Mirror.xyz post](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
-- [Scaffold-ETH Stuff](https://hihello.me/p/b914b816-fb27-4909-9525-16c74c7e7eef)
-- [Scaffold-ETH Workshops at ETH Global](https://www.youtube.com/results?search_query=Scaffold-ETH+Workshop+ETHGlobal+Kevin+Jones)
-- [The Graph Workshops at ETH Global](https://www.youtube.com/results?search_query=The+Graph+Workshop+ETHGlobal)
-- [0 to Buidl Guidl](https://lulox.notion.site/0-to-BuidlGuidl-4e1e835ba37c414199fe7a63cb5807e3)
-- [Austin's Web2 to Web3 Curriculum](https://github.com/austintgriffith/web2-to-web3-curriculum)
-- [Naders Web3 Resources for Developers](https://naderdabit.notion.site/Nader-s-web3-Resources-for-Developers-a200ed2ef21c4d578dc158df2b882c63)
-- [Eda's Developer Resources](https://github.com/edakturk14/ethereum-developer-resources)
+
+-   [Wagmi Hooks](https://wagmi.sh/react/hooks/useAccount)
+-   [Scaffold-ETH Hooks](https://github.com/scaffold-eth/eth-ui/blob/next/packages/eth-hooks/README.md)
+-   [Scaffold-ETH Components](https://github.com/scaffold-eth/eth-components)
+-   [Additional README](https://scaffold-eth-2-docs.vercel.app/hooks/)
+-   [Kevin's Social Media Contacts](https://hihello.me/p/6a93d967-1d9f-4818-ae0c-2dc9f86e01aa)
+-   [Kevin's Mirror.xyz post](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
+-   [Scaffold-ETH Stuff](https://hihello.me/p/b914b816-fb27-4909-9525-16c74c7e7eef)
+-   [Scaffold-ETH Workshops at ETH Global](https://www.youtube.com/results?search_query=Scaffold-ETH+Workshop+ETHGlobal+Kevin+Jones)
+-   [The Graph Workshops at ETH Global](https://www.youtube.com/results?search_query=The+Graph+Workshop+ETHGlobal)
+-   [0 to Buidl Guidl](https://lulox.notion.site/0-to-BuidlGuidl-4e1e835ba37c414199fe7a63cb5807e3)
+-   [Austin's Web2 to Web3 Curriculum](https://github.com/austintgriffith/web2-to-web3-curriculum)
+-   [Naders Web3 Resources for Developers](https://naderdabit.notion.site/Nader-s-web3-Resources-for-Developers-a200ed2ef21c4d578dc158df2b882c63)
+-   [Eda's Developer Resources](https://github.com/edakturk14/ethereum-developer-resources)
