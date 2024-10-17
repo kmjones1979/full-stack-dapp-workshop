@@ -59,16 +59,15 @@ For detailed instructions and more context, check out the [Getting Started Guide
 First, we will start out with a special build of Scaffold-ETH 2 written by Simon from Edge and Node… Thanks Simon! 🫡
 
 ```
-git clone -b subgraph-package \
-  https://github.com/scaffold-eth/scaffold-eth-2.git \
-  scaffold-eth-2-subgraph-package
+npx create-eth@latest -e subgraph subgraph-package
 ```
 
-Once you have this checked out on your machine, navigate into the directory and install all of the dependencies using yarn.
+Choose hardhat or foundry for your chain. This will install all the needed packages for Scaffold-ETH and The Graph.
+
+Next, navigate into the directory.
 
 ```
-cd scaffold-eth-2-subgraph-package && \
-  yarn install
+cd subgraph-package
 ```
 
 Next, we will want to start up our local blockchain so that we can eventually deploy and test our smart contracts. Scaffold-ETH 2 comes with Hardhat by default. To spin up the chain just type the following yarn command…
