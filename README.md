@@ -189,6 +189,34 @@ Subgraph endpoints:
 Queries (HTTP):     http://localhost:8000/subgraphs/name/scaffold-eth/your-contract
 ```
 
+#### ✅ About Graph-Client ✅
+
+This extension uses [Graph-Client](https://github.com/graphprotocol/graph-client). The frontend is already configured to utilize and consume the GraphQL endpoint and comes with a predefined query.
+
+This is located in `packages/nextjs/graphql/GetGreetings.gql`
+
+```
+query GetGreetings{
+   greetings(first: 25, orderBy: createdAt, orderDirection: desc) {
+     id
+     greeting
+     premium
+     value
+     createdAt
+     sender {
+       address
+       greetingCount
+     }
+   }
+ }
+```
+
+You will need to create a runtime artifact by running The Graph Client CLI a shortcut for this defined in the `package.json`
+
+```
+yarn graphclient:build
+```
+
 &nbsp;
 
 #### ✅ Step 3: Test your Subgraph ✅
